@@ -30,7 +30,7 @@ public struct RecordFeedbackView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    Text("If you want to record voice feedback regarding your experience recording and navigating the route, please use the button below to record your feedback on this trial.  When you are satisfied with your feedback, you can use the \"Main Menu\" button to return to the main screen of the app.")
+                    Text("Custom text")
                 }
                 .navigationBarHidden(true)
                 RecorderView()
@@ -314,7 +314,7 @@ public class RecorderViewController: UIViewController, SRCountdownTimerDelegate 
         let sampleRate: Double
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, mode: .videoRecording)
+            try session.setCategory(.playAndRecord, mode: .videoRecording, options: .allowBluetooth)
             sampleRate = session.sampleRate
             try session.setActive(true)
         } catch let error as NSError {
